@@ -2,10 +2,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 
-public class ModifCouleur extends JPanel {
+public class EcranExportation extends JPanel {
 	JFrame parent;
 	
-	public ModifCouleur(JFrame parent) {
+	public EcranExportation(JFrame parent) {
 		super();
 		this.parent = parent;
 	}
