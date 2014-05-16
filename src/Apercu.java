@@ -4,17 +4,17 @@ import javax.swing.*;
 
 public class Apercu extends JPanel {
 	protected JLabel apercu;
-	private JFrame parent;
 	
 	public Apercu(JFrame parent) {
 		super();
-		this.parent = parent;
+		Graphe graph = new Graphe();
 		this.apercu = new JLabel("Aperçu");
-		this.setLayout(new BoxLayout(parent.getContentPane(), BoxLayout.Y_AXIS));
+		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		
+		add(apercu);
+		add(graph);
+		
+		apercu.setAlignmentX(CENTER_ALIGNMENT);
+		graph.setAlignmentX(CENTER_ALIGNMENT);
 	}
-	
-	public void paint() {
-		Graphics g = this.getGraphics();
-	}
-	
 }
