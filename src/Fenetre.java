@@ -5,7 +5,7 @@ public class Fenetre extends JFrame {
 
 	public Fenetre() {
 		super("Selecteur de couleurs");
-		setSize(1286, 768);
+		setSize(1366, 768);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		getContentPane();
 	}
