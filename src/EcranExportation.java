@@ -3,10 +3,10 @@ import javax.swing.JPanel;
 
 
 public class EcranExportation extends JPanel {
-	JFrame parent;
+	JFrame fenetre;
 	
-	public EcranExportation(JFrame parent) {
+	public EcranExportation(JFrame fenetre) {
 		super();
-		this.parent = parent;
+		this.fenetre = fenetre;
 	}
 }

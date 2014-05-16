@@ -5,9 +5,9 @@ import javax.swing.JPanel;
 
 public class EcranSelection extends JPanel {
 	
-	JFrame fenetre;
+	Fenetre fenetre;
 	
-	public EcranSelection(JFrame fenetre) {
+	public EcranSelection(Fenetre fenetre) {
 		super();
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		this.fenetre = fenetre;

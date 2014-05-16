@@ -10,16 +10,21 @@ import javax.swing.JPanel;
 
 public class CouleursCards extends JPanel {
 	
-	private JFrame fenetre;
+	private Fenetre fenetre;
 	CardLayout cartes;
 	
-	public CouleursCards(JFrame fenetre) {
+	public CouleursCards(Fenetre fenetre) {
 		super();
 		cartes = new CardLayout();
+		this.setLayout(cartes);
 		this.setPreferredSize(new Dimension(300, 500));
-		this.add(new ChoixCouleur(fenetre), "choix");
-		this.add(new ModifCouleur(fenetre), "modif");
+		this.add(new ChoixCouleur(this), "choix");
+		this.add(new ModifCouleur(this), "modif");
 		this.fenetre = fenetre;
 		this.setSize(getMaximumSize());
+	}
+	
+	public void afficherCarte(String carte) {
+		cartes.show(this, carte);
 	}
 }
