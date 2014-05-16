@@ -16,7 +16,7 @@ public class Graphe extends JPanel {
 	public void paintComponent(Graphics g) {
 		int x = 60;
 		int y = 200;
-		int hauteur = 20;
+		int hauteur = 100;
 		int largeur = 20;
 		int cpt = 0;
 		int nbCouleur = 8;
