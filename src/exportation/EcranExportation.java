@@ -1,4 +1,7 @@
+package exportation;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -6,14 +9,17 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import fenetre.Fenetre;
+
 
 public class EcranExportation extends JPanel {
 	JFrame fenetre;
 	JPanel panel1;
 	JPanel panel2;
 	
-	public EcranExportation() {
+	public EcranExportation(JFrame parent) {
 		super();
+		this.fenetre = parent;
 		JButton Button1 = new JButton("Retour");
 		
 		this.panel1 = new JPanel();
@@ -37,13 +43,5 @@ public class EcranExportation extends JPanel {
 		
 		this.add(panel1);
 		this.add(panel2);
-	}
-	
-	public static void main(String[] args) {
-		JFrame test = new JFrame();
-		test.getContentPane().add(new EcranExportation());
-		test.setSize(1366,  768);
-		test.setVisible(true);
-		
 	}
 }

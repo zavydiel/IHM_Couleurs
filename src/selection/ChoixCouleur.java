@@ -1,3 +1,4 @@
+package selection;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
@@ -20,16 +21,9 @@ public class ChoixCouleur extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				changerCarte();
-				
-			}
-
-			
+				((EcranSelection) parent).permuterCarte();				
+			}			
 		});
 		add(bouton);
-	}
-	
-	private void changerCarte() {
-		((CouleursCards) parent).afficherCarte("modif");
 	}
 }

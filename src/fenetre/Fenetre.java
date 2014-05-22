@@ -1,6 +1,11 @@
+package fenetre;
+
 import java.awt.CardLayout;
 
 import javax.swing.JFrame;
+
+import selection.EcranSelection;
+import exportation.EcranExportation;
 
 
 @SuppressWarnings("serial")
@@ -15,7 +20,7 @@ public class Fenetre extends JFrame {
 		setSize(1366, 768);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.getContentPane().add(new EcranSelection(this), "selection");
-		this.getContentPane().add(new EcranExportation(), "exportation");
+		this.getContentPane().add(new EcranExportation(this), "exportation");
 		//afficherCarte("exportation");
 	}
 	
@@ -24,5 +29,7 @@ public class Fenetre extends JFrame {
 		fenetre.setVisible(true);
 	}
 	
-	
+	public void permuterEcran() {
+		cartes.next(this.getContentPane());
+	}
 }
