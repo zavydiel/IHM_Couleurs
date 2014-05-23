@@ -44,7 +44,7 @@ public class GLCouleur {
 	}
 	
 	public int getGreen()  {
-		return couleur.getBlue();
+		return couleur.getGreen();
 	}
 	
 	public int getBlue() {
