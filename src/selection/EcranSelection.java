@@ -2,10 +2,10 @@ package selection;
 import java.awt.CardLayout;
 
 import javax.swing.BoxLayout;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import couleurs.Palette;
-
 import fenetre.Fenetre;
 
 
@@ -19,6 +19,7 @@ public class EcranSelection extends JPanel {
 		super();
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		this.fenetre = fenetre;
+
 		
 		cartes.setLayout(new CardLayout());
 		cartes.add(new ChoixCouleur(this), "choix");
@@ -26,6 +27,7 @@ public class EcranSelection extends JPanel {
 		
 		this.add(new Apercu(fenetre));
 		this.add(cartes);
+
 	}
 	
 	public void permuterCarte() {
