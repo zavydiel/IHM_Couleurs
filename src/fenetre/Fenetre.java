@@ -17,6 +17,7 @@ public class Fenetre extends JFrame {
 	
 	public Fenetre() {
 		super("Selecteur de couleurs");
+		palette = new Palette(5);
 		cartes = new CardLayout();
 		this.getContentPane().setLayout(cartes);
 		setSize(1366, 768);
@@ -24,7 +25,7 @@ public class Fenetre extends JFrame {
 		this.getContentPane().add(new EcranSelection(this), "selection");
 		this.getContentPane().add(new EcranExportation(this), "exportation");
 		
-		palette = new Palette(5);
+		
 		
 	}
 	

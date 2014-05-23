@@ -1,6 +1,7 @@
 package couleurs;
 
 import java.awt.Color;
+import java.util.Random;
 
 public class GLCouleur {
 
@@ -8,6 +9,26 @@ public class GLCouleur {
 	
 	public GLCouleur(int r, int g, int b) {
 		couleur = new Color(r, g, b);
+	}
+	
+	public GLCouleur(int grayLevel) {
+		Random rng = new Random();
+		int r = 0;
+		int g = 0;
+		int b = 0;
+		int gray = 0;
+		while(gray < grayLevel) {
+			int i = rng.nextInt(3);
+			if(i==0 && r<252) r++;
+			if(i==1 && g<252) g++;
+			if(i==2 && b<252) b++;
+			
+			gray = (int) (0.3 * r + 0.59 * g + 0.11 * b);
+		}
+
+		couleur = new Color(r, g, b);
+
+		System.out.println(getGrayLevel() + ": " + r + ", "+ g +", " + b);
 	}
 	
 	public int getGrayLevel() {

@@ -5,17 +5,21 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import couleurs.Palette;
+
+import sun.misc.Perf.GetPerfAction;
+
 import fenetre.Fenetre;
 
 public class Apercu extends JPanel {
 	protected JLabel apercu;
-	private JFrame fenetre;
+	 JFrame fenetre;
 	
 	public Apercu(JFrame parent) {
 		super();
 		this.fenetre = parent;
 		setPreferredSize(new Dimension(900,500));
-		Graphe graph = new Graphe();
+		Graphe graph = new Graphe(fenetre);
 		this.apercu = new JLabel("Apercu");
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
@@ -39,4 +43,8 @@ public class Apercu extends JPanel {
 		add(bouton);
 	}
 	
+	public Palette GetPalette() {
+		return ((Fenetre) fenetre).getPalette();
 	}
+	
+}

@@ -6,6 +6,10 @@ public class Palette {
 	
 	public Palette(int nombre) {
 		couleurs  = new GLCouleur[nombre];
+		for (int i = 0; i < getTaille(); i++) {
+			int grayLevel = 20 + (255-20)/getTaille() * i;
+			couleurs[i] = new GLCouleur(grayLevel);
+		}
 	}
 	
 	public GLCouleur getGLCouleur(int index) {
@@ -19,4 +23,6 @@ public class Palette {
 //	public void ordonnerNiveauGris() {
 //		Collections.sort(couleurs, new CouleursComparator());
 //	}
+	
+	
 }
