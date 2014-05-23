@@ -29,7 +29,7 @@ public class Apercu extends JPanel {
 		apercu.setAlignmentX(CENTER_ALIGNMENT);
 		graph.setAlignmentX(CENTER_ALIGNMENT);
 		
-		JButton bouton = new JButton("toto");
+		JButton bouton = new JButton("Exportation");
 		bouton.addActionListener(new ActionListener() {
 			
 			@Override
