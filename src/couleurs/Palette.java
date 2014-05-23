@@ -1,6 +1,5 @@
 package couleurs;
 
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils.Collections;
 
 public class Palette {
 	
