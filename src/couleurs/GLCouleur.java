@@ -35,6 +35,10 @@ public class GLCouleur {
 		return (int) (0.3 * getRed() + 0.59 * getGreen() + 0.11 * getBlue());
 	}
 	
+	public Color getGrayedColor() {
+		return new Color(getGrayLevel(), getGrayLevel(), getGrayLevel());
+	}
+	
 	public int getRed() {
 		return couleur.getRed();
 	}
