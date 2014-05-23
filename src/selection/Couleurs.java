@@ -23,7 +23,7 @@ public class Couleurs extends JPanel {
 		JLabel couleurs = new JLabel("\n ");
 		couleurs.setMaximumSize(new Dimension(50,50));
 		couleurs.setPreferredSize(new Dimension(50,50));
-		couleurs.setBackground(new Color(couleur.getRed(),couleur.getGreen(),couleur.getBlue()));
+		couleurs.setBackground(couleur.getColor());
 		couleurs.setOpaque(true);
 		horizontalBox.add(couleurs);
 		horizontalBox.add(Box.createGlue());

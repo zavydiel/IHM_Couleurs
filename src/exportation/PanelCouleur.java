@@ -34,7 +34,7 @@ public class PanelCouleur extends JPanel{
 		
 		JLabel couleur= new JLabel(" ");
 		couleur.setPreferredSize(new Dimension(100,50));
-		couleur.setBackground(new Color(color.getRed(),color.getGreen(),color.getBlue()));
+		couleur.setBackground(color.getColor());
 		couleur.setOpaque(true);
 		horizontalBox.add(couleur);
 		horizontalBox.add(Box.createGlue());
@@ -67,7 +67,7 @@ public class PanelCouleur extends JPanel{
 		horizontalBox.add(Box.createGlue());
 		
 		JLabel hexadecimal = new JLabel("Hex : ");
-		TextField Hexa = new TextField(String.format("#%02x%02x%02x", color.getRed(), color.getGreen(), color.getBlue()));
+		TextField Hexa = new TextField(color.getHexa());
 		Hexa.setPreferredSize(new Dimension(90,20));
 		Hexa.setMaximumSize(new Dimension(90,20));		
 		Hexa.setEditable(false);
