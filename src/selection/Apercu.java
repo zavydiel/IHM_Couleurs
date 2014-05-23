@@ -12,22 +12,16 @@ import sun.misc.Perf.GetPerfAction;
 import fenetre.Fenetre;
 
 public class Apercu extends JPanel {
-	protected JLabel apercu;
 	 JFrame fenetre;
 	
 	public Apercu(JFrame parent) {
 		super();
 		this.fenetre = parent;
-		setPreferredSize(new Dimension(900,500));
+		setPreferredSize(new Dimension(1366,300));
 		Graphe graph = new Graphe(fenetre);
-		this.apercu = new JLabel("Apercu");
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-		
-		add(apercu);
+		this.setBorder(BorderFactory.createTitledBorder("Apercu"));
 		add(graph);
-		
-		apercu.setAlignmentX(CENTER_ALIGNMENT);
-		graph.setAlignmentX(CENTER_ALIGNMENT);
 		
 		JButton bouton = new JButton("Exportation");
 		bouton.addActionListener(new ActionListener() {
@@ -40,6 +34,7 @@ public class Apercu extends JPanel {
 
 			
 		});
+
 		add(bouton);
 	}
 	

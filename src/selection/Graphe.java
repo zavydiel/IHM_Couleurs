@@ -17,7 +17,7 @@ public class Graphe extends JPanel {
 		super();
 		this.fenetre = parent;
 		//System.out.println(((Fenetre) parent).getPalette().getTaille());
-		Dimension taille = new Dimension(800,200);
+		Dimension taille = new Dimension(1000,200);
 		this.setMaximumSize(taille);
 		this.setPreferredSize(taille);
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
