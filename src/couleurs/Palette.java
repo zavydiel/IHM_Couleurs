@@ -1,6 +1,5 @@
 package couleurs;
 
-
 public class Palette {
 	
 	private GLCouleur[] couleurs;

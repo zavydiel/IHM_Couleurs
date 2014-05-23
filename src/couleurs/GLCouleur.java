@@ -29,4 +29,10 @@ public class GLCouleur {
 	public Color getColor()  {
 		return couleur;
 	}
+	
+	public String getHexa() {
+		return "#" + Integer.toHexString(getRed()) 
+				+Integer.toHexString(getGreen())
+				+Integer.toHexString(getBlue());
+	}
 }

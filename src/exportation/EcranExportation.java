@@ -6,6 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import couleurs.Palette;
+import fenetre.Fenetre;
+
 
 public class EcranExportation extends JPanel {
 	JFrame fenetre;
@@ -38,5 +41,9 @@ public class EcranExportation extends JPanel {
 		
 		this.add(panel1);
 		this.add(panel2);
+	}
+	
+	public Palette getPalette() {
+		return ((Fenetre) fenetre).getPalette();
 	}
 }

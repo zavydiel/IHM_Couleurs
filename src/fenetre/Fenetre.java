@@ -36,4 +36,8 @@ public class Fenetre extends JFrame {
 	public void permuterEcran() {
 		cartes.next(this.getContentPane());
 	}
+	
+	public Palette getPalette() {
+		return palette;
+	}
 }

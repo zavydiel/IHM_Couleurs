@@ -4,6 +4,8 @@ import java.awt.CardLayout;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
+import couleurs.Palette;
+
 import fenetre.Fenetre;
 
 
@@ -28,5 +30,9 @@ public class EcranSelection extends JPanel {
 	
 	public void permuterCarte() {
 		((CardLayout) cartes.getLayout()).next(cartes);
+	}
+	
+	public Palette getPalette() {
+		return ((Fenetre) fenetre).getPalette();
 	}
 }
