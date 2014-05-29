@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-import couleurs.Palette;
+import couleurs.CouleursContainer;
 import sun.misc.Perf.GetPerfAction;
 import fenetre.Fenetre;
 
@@ -41,7 +41,7 @@ public class Apercu extends JPanel {
 		add(bouton);
 	}
 	
-	public Palette GetPalette() {
+	public CouleursContainer GetPalette() {
 		return ((Fenetre) fenetre).getPalette();
 	}
 	

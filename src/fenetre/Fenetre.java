@@ -4,7 +4,7 @@ import java.awt.CardLayout;
 
 import javax.swing.JFrame;
 
-import couleurs.Palette;
+import couleurs.CouleursContainer;
 import selection.EcranSelection;
 import exportation.EcranExportation;
 
@@ -13,11 +13,11 @@ import exportation.EcranExportation;
 public class Fenetre extends JFrame {
 
 	private CardLayout cartes;
-	private Palette palette;
+	private CouleursContainer palette;
 	
 	public Fenetre() {
 		super("Selecteur de couleurs");
-		palette = new Palette(5);
+		palette = new CouleursContainer(5);
 		cartes = new CardLayout();
 		this.getContentPane().setLayout(cartes);
 		setSize(1366, 768);
@@ -38,7 +38,7 @@ public class Fenetre extends JFrame {
 		cartes.next(this.getContentPane());
 	}
 	
-	public Palette getPalette() {
+	public CouleursContainer getPalette() {
 		return palette;
 	}
 }

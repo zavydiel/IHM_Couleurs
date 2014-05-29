@@ -9,42 +9,50 @@ public class GLCouleur {
 	
 	public GLCouleur(int r, int g, int b) {
 		couleur = new Color(r, g, b);
+		System.out.println(getGrayLevel());
 	}
 	
-	public GLCouleur(int grayLevel) {
+	/*public GLCouleur(int grayLevel) {
 		Random rng = new Random();
-		int r = 0;
-		int g = 0;
-		int b = 0;
+		float r = 0.3f * grayLevel;
+		float g = 0.59f * grayLevel;
+		float b = 0.11f * grayLevel;
 		int gray = 0;
 //		while(gray < grayLevel) {
 //			int i = rng.nextInt(3);
-//			if(i==0 && r<252) r++;
-//			if(i==1 && g<252) g++;
-//			if(i==2 && b<252) b++;
+//			if(i==0 && r<242) r += 1/0.3;
+//			if(i==1 && g<242) g += 1/0.59;
+//			if(i==2 && b<232) b += 1/0.11;
 //			
 //			gray = (int) (0.3 * r + 0.59 * g + 0.11 * b);
-//		}
-//
-//		couleur = new Color(r, g, b);
-//
-//		System.out.println(getGrayLevel() + ": " + r + ", "+ g +", " + b);
+//		} 
+
+		couleur = new Color((int) r,(int) g, (int) b);
+
+		System.out.println(getGrayLevel() + ": " + r + ", "+ g +", " + b);
 		
-		r = 42 + rng.nextInt(256 - 42);
-		g = 42 + rng.nextInt(256 - 42);
-		b = 42 + rng.nextInt(256 - 42);
-		gray = (int) (0.3 * r + 0.59 * g + 0.11 * b);
-		int diff = grayLevel - gray;
-		r += (int) (0.3*diff);
-		g += (int) (0.59*diff);
-		b += (int) (0.11*diff);
+//		r = 42 + rng.nextInt(256 - 42);
+//		g = 42 + rng.nextInt(256 - 42);
+//		b = 42 + rng.nextInt(256 - 42);
+//		gray = (int) (0.3 * r + 0.59 * g + 0.11 * b);
+//		int diff = grayLevel - gray;
+//		r += (int) (0.3*diff);
+//		g += (int) (0.59*diff);
+//		b += (int) (0.11*diff);
 		
-		System.out.print(r + ", "+ g +", " + b + "(" + gray + "/" + grayLevel +")");
-		System.out.print("delta= " + (((int) (0.3*diff)) + (int) (0.59*diff) + (int) (0.11*diff)));
-		couleur = new Color(r, g, b);
+//		float teinte = 42; //(float) Math.random();
+//		
+//		this.couleur = Color.getHSBColor(teinte, 0.5f, .5f); //(float) (255/grayLevel));
+//		r = couleur.getRed();
+//		g = couleur.getGreen();
+//		b = couleur.getBlue();
+		
+//		System.out.print(r + ", "+ g +", " + b + "(" + teinte + "/" + grayLevel +")");
+		//System.out.print("delta= " + (((int) (0.3*diff)) + (int) (0.59*diff) + (int) (0.11*diff)));
+		//couleur = new Color(r, g, b);
 
 		System.out.println(" // " + getGrayLevel());		
-	}
+	}*/
 	
 	public int getGrayLevel() {
 		return (int) (0.3 * getRed() + 0.59 * getGreen() + 0.11 * getBlue());

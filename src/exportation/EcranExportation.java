@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import couleurs.GLCouleur;
-import couleurs.Palette;
+import couleurs.CouleursContainer;
 import fenetre.Fenetre;
 
 
@@ -46,7 +46,7 @@ public class EcranExportation extends JPanel {
 
 
 
-	public Palette getPalette() {
+	public CouleursContainer getPalette() {
 		return ((Fenetre) fenetre).getPalette();
 	}
 

@@ -5,7 +5,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import couleurs.Palette;
+import couleurs.CouleursContainer;
 import fenetre.Fenetre;
 
 
@@ -34,7 +34,7 @@ public class EcranSelection extends JPanel {
 		((CardLayout) cartes.getLayout()).next(cartes);
 	}
 	
-	public Palette getPalette() {
+	public CouleursContainer getPalette() {
 		return ((Fenetre) fenetre).getPalette();
 	}
 }

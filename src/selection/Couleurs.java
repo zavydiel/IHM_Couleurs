@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import couleurs.GLCouleur;
-import couleurs.Palette;
+import couleurs.CouleursContainer;
 
 
 public class Couleurs extends JPanel {

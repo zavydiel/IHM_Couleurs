@@ -9,7 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import couleurs.Palette;
+import couleurs.CouleursContainer;
 
 
 public class ChoixCouleur extends JPanel{
@@ -31,7 +31,7 @@ public class ChoixCouleur extends JPanel{
 		
 	}
 	
-	public Palette getPalette() {
+	public CouleursContainer getPalette() {
 		return ((EcranSelection) parent).getPalette();
 	}
 }

@@ -1,5 +1,6 @@
 package selection;
 import java.awt.*;
+
 import fenetre.*;
 
 import javax.swing.BorderFactory;
@@ -7,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import couleurs.GLCouleur;
+import couleurs.CouleursContainer;
 import couleurs.Palette;
 
 public class Graphe extends JPanel {
@@ -31,11 +33,11 @@ public class Graphe extends JPanel {
 			int largeur = 20;
 			int cpt = 0;
 			int nbCouleur = 8;
-			Palette pal = ((Fenetre) fenetre).getPalette();
+			CouleursContainer pal = ((Fenetre) fenetre).getPalette();
 			//System.out.println(parent.GetPalette().getTaille());
 			
 			while(cpt < ((Fenetre) fenetre).getPalette().getTaille()) {
-				GLCouleur kulle = pal.getGLCouleur(cpt);
+				GLCouleur kulle = ((Fenetre) fenetre).getPalette().getGLCouleur(cpt);
 				g.setColor(kulle.getColor());
 				g.fillRect((x + (800/nbCouleur)*cpt) -largeur , y-hauteur, largeur , hauteur );
 				cpt++;
