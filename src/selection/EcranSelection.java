@@ -1,5 +1,6 @@
 package selection;
 import java.awt.CardLayout;
+import java.awt.Color;
 
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
@@ -12,6 +13,7 @@ import fenetre.Fenetre;
 public class EcranSelection extends JPanel {
 	
 	Fenetre fenetre;
+	Color couleur;
 	
 	private JPanel cartes = new JPanel();
 	
@@ -30,6 +32,14 @@ public class EcranSelection extends JPanel {
 
 	}
 	
+	public void setCouleurActuelle(int i) {
+		this.couleur = couleur;
+	}
+	
+	public Color getCouleurActuelle() {
+		return this.couleur;
+	}
+	
 	public void permuterCarte() {
 		((CardLayout) cartes.getLayout()).next(cartes);
 	}
@@ -37,4 +47,6 @@ public class EcranSelection extends JPanel {
 	public CouleursContainer getPalette() {
 		return ((Fenetre) fenetre).getPalette();
 	}
+	
+	
 }

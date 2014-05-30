@@ -7,6 +7,7 @@ import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.TextField;
 
+import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -37,6 +38,7 @@ public class PanelCouleur extends JPanel{
 		couleur.setPreferredSize(new Dimension(100,50));
 		couleur.setBackground(color.getColor());
 		couleur.setOpaque(true);
+		couleur.setBorder(BorderFactory.createLineBorder(Color.WHITE));
 		horizontalBox.add(couleur);
 		horizontalBox.add(Box.createGlue());
 		
