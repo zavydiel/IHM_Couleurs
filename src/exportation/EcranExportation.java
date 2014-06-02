@@ -1,4 +1,5 @@
 package exportation;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import couleurs.GLCouleur;
 import couleurs.CouleursContainer;
@@ -22,7 +24,8 @@ public class EcranExportation extends JPanel {
 	public EcranExportation(JFrame parent) {
 		super();
 		this.fenetre = parent;
-
+		this.setPreferredSize(new Dimension(800, 600));
+		//JScrollPane scroll = new JScrollPane();
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
 		for(int j=1;j<=getPalette().getTaille();j++) {
@@ -40,7 +43,8 @@ public class EcranExportation extends JPanel {
 
 			}
 		});
-
+		//scroll.setPreferredSize(new Dimension(800, 500));;
+		//add(scroll);
 		add(Retour);
 	}
 

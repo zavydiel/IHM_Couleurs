@@ -25,8 +25,8 @@ public class PanelCouleur extends JPanel{
 		Box horizontalBox;
 		horizontalBox = Box.createHorizontalBox();
 		setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
-		setPreferredSize(new Dimension(1366,80));
-		setMaximumSize(new Dimension(1366,80));
+		setPreferredSize(new Dimension(1366,50));
+		setMaximumSize(new Dimension(1366,50));
 		setBackground(color.getGrayedColor());
 		
 		horizontalBox.add(Box.createGlue());

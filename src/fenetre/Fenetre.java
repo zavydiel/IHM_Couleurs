@@ -20,7 +20,7 @@ public class Fenetre extends JFrame {
 		palette = new CouleursContainer(5);
 		cartes = new CardLayout();
 		this.getContentPane().setLayout(cartes);
-		setSize(1366, 768);
+		setSize(800, 600);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.getContentPane().add(new EcranSelection(this), "selection");
 		this.getContentPane().add(new EcranExportation(this), "exportation");

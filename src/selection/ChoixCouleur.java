@@ -20,41 +20,22 @@ import fenetre.Fenetre;
 public class ChoixCouleur extends JPanel{
 
 	protected JPanel parent;
-	private static Color CouleurActuelle;
+	private int  CouleurActuelle;
 
 	public ChoixCouleur(final JPanel fenetre) {
 		super();
 		this.parent = fenetre;
 		Box horizontalBox = Box.createHorizontalBox();
-		JPanel couleur = new JPanel();
-		couleur.setLayout(new BoxLayout(couleur,BoxLayout.X_AXIS));	
-		setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
-
+		setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
+		horizontalBox.setPreferredSize(new Dimension(1366, 80));
+		
 		JLabel nbCouleurs = new JLabel("Nombres de couleurs : " +getPalette().getTaille()+"\n");
 		add(nbCouleurs);
+		horizontalBox.add(Box.createHorizontalGlue());
 
 		for(int i=0; i<getPalette().getTaille();i++) {
-			Color choix = getPalette().getGLCouleur(i).getColor();
-
-			JPanel color = new JPanel();
-			horizontalBox.add(Box.createGlue());
-			color.setBackground(choix);
-			color.setPreferredSize(new Dimension(50,50));
-			color.setMaximumSize(new Dimension(50,50));
-			horizontalBox.add(Box.createGlue());
-			horizontalBox.add(color);
-			horizontalBox.add(Box.createGlue());
-
-			color.addMouseListener(	new MouseListener() {
-				public void mouseClicked(MouseEvent e) {((EcranSelection) parent).permuterCarte();}
-				public void mouseEntered(MouseEvent e) {}
-				public void mouseExited(MouseEvent e) {}
-				public void mousePressed(MouseEvent e) {}
-				public void mouseReleased(MouseEvent e){}
-				
-			});
-
-			//add(new Couleurs(getPalette().getGLCouleur(i)));
+			horizontalBox.add(new BoutonCouleur(i, this));
+			horizontalBox.add(Box.createHorizontalGlue());
 		}
 
 		add(horizontalBox);
@@ -64,6 +45,14 @@ public class ChoixCouleur extends JPanel{
 		
 	public CouleursContainer getPalette() {
 		return ((EcranSelection) parent).getPalette();
+	}
+	
+	public void setCouleurActuelle(int i) {
+		((EcranSelection) parent).setCouleurActuelle(i);
+	}
+	
+	public void permuterCarte() {
+		((EcranSelection) parent).permuterCarte();
 	}
 }
 

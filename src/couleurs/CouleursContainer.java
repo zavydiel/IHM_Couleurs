@@ -6,7 +6,7 @@ public class CouleursContainer {
 	
 	public CouleursContainer(int nombre) {
 		couleurs  = new GLCouleur[nombre];
-		for (int i = 0; i < getTaille(); i++) {
+		for (int i = getTaille() - 1; i > - 1 ; i--) {
 			int grayLevel = 20 + (255-20)/getTaille() * i;
 			couleurs[i] = Palette.getCouleurAleatoire(grayLevel);
 		}

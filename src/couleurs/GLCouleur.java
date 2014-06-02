@@ -9,7 +9,6 @@ public class GLCouleur {
 	
 	public GLCouleur(int r, int g, int b) {
 		couleur = new Color(r, g, b);
-		System.out.println(getGrayLevel());
 	}
 	
 	/*public GLCouleur(int grayLevel) {
@@ -82,5 +81,9 @@ public class GLCouleur {
 		return "#" + Integer.toHexString(getRed()) 
 				+Integer.toHexString(getGreen())
 				+Integer.toHexString(getBlue());
+	}
+	
+	public boolean equals(GLCouleur c) {
+		return couleur.equals(c.getColor());
 	}
 }

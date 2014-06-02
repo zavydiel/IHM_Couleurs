@@ -7,13 +7,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import couleurs.CouleursContainer;
+import couleurs.GLCouleur;
 import fenetre.Fenetre;
 
 
 public class EcranSelection extends JPanel {
 	
 	Fenetre fenetre;
-	Color couleur;
+	int couleurActuelle = 0;
+	ModifCouleur modif = new ModifCouleur(this);
 	
 	private JPanel cartes = new JPanel();
 	
@@ -25,23 +27,28 @@ public class EcranSelection extends JPanel {
 		
 		cartes.setLayout(new CardLayout());
 		cartes.add(new ChoixCouleur(this), "choix");
-		cartes.add(new ModifCouleur(this), "modif");
+		cartes.add(modif, "modif");
 		
 		this.add(new Apercu(fenetre));
 		this.add(cartes);
-
 	}
 	
 	public void setCouleurActuelle(int i) {
-		this.couleur = couleur;
+		this.couleurActuelle = i;
+		modif.mettreAJour();
 	}
 	
-	public Color getCouleurActuelle() {
-		return this.couleur;
+	public GLCouleur getCouleurActuelle() {
+		return getPalette().getGLCouleur(couleurActuelle);
+	}
+	
+	public int getIndexActuel() {
+		return couleurActuelle;
 	}
 	
 	public void permuterCarte() {
 		((CardLayout) cartes.getLayout()).next(cartes);
+		this.repaint();
 	}
 	
 	public CouleursContainer getPalette() {
