@@ -19,15 +19,16 @@ public class Graphe extends JPanel {
 		super();
 		this.fenetre = parent;
 		//System.out.println(((Fenetre) parent).getPalette().getTaille());
-		Dimension taille = new Dimension(1000,200);
+		Dimension taille = new Dimension(600,200);
 		this.setMaximumSize(taille);
 		this.setPreferredSize(taille);
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		this.setAlignmentX(CENTER_ALIGNMENT);
 	}
 
 	public void paintComponent(Graphics g) {
 		if(((Fenetre) fenetre).getPalette() != null) {
-			int x = 60;
+			int x = 600/6;
 			int y = 200;
 			int hauteur = 100;
 			int largeur = 20;

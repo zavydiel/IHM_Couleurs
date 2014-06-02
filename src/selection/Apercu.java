@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 import couleurs.CouleursContainer;
-import sun.misc.Perf.GetPerfAction;
 import fenetre.Fenetre;
 
 public class Apercu extends JPanel {
@@ -27,6 +26,7 @@ public class Apercu extends JPanel {
 		add(HorizontalBox);
 		
 		JButton bouton = new JButton("Exportation");
+		bouton.setAlignmentX(CENTER_ALIGNMENT);;
 		bouton.addActionListener(new ActionListener() {
 			
 			@Override

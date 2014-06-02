@@ -27,6 +27,7 @@ public class EcranExportation extends JPanel {
 		this.setPreferredSize(new Dimension(800, 600));
 		//JScrollPane scroll = new JScrollPane();
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		fenetre.setMinimumSize(new Dimension(600,400));
 
 		for(int j=1;j<=getPalette().getTaille();j++) {
 			add(new PanelCouleur(getPalette().getGLCouleur(j-1),j));
@@ -34,7 +35,7 @@ public class EcranExportation extends JPanel {
 
 
 		JButton Retour = new JButton("Retour");
-
+		Retour.setAlignmentX(CENTER_ALIGNMENT);
 		Retour.addActionListener(new ActionListener() {
 
 			@Override
