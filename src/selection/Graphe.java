@@ -9,7 +9,6 @@ import javax.swing.JPanel;
 
 import couleurs.GLCouleur;
 import couleurs.CouleursContainer;
-import couleurs.Palette;
 
 public class Graphe extends JPanel {
 
@@ -35,8 +34,6 @@ public class Graphe extends JPanel {
 			int x = (this.getWidth() - nbCouleur * largeur) / 2;
 			int y = 200;
 			int cpt = 0;
-			
-			//System.out.println(parent.GetPalette().getTaille());
 			
 			while(cpt < ((Fenetre) fenetre).getPalette().getTaille()) {
 				GLCouleur kulle = ((Fenetre) fenetre).getPalette().getGLCouleur(cpt);

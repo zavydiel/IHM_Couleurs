@@ -1,7 +1,6 @@
 package couleurs;
 
 import java.awt.Color;
-import java.util.Random;
 
 public class GLCouleur {
 

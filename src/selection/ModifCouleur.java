@@ -13,7 +13,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
-import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -46,7 +45,6 @@ public class ModifCouleur extends JPanel {
 		this.parent = parent;
 		this.setLayout(new GridBagLayout());
 		
-		//Box container = Box.createVerticalBox();
 		JPanel container = new JPanel();
 		container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));		
 		container.setAlignmentX(CENTER_ALIGNMENT);
@@ -55,9 +53,7 @@ public class ModifCouleur extends JPanel {
 		scroll.setPreferredSize(DIMENSION_PANEL);
 		scroll.setMaximumSize(DIMENSION_PANEL);
 		scroll.setAlignmentX(CENTER_ALIGNMENT);
-		//scroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		
-		//scrolled.setLayout(new FlowLayout());
 		scrolled.setMaximumSize(DIMENSION_PANEL);
 		scrolled.setBackground(Color.WHITE);
 		scrolled.addMouseListener(new MouseListener() {
@@ -123,11 +119,9 @@ public class ModifCouleur extends JPanel {
 		ArrayList<GLCouleur> couleurs = Palette.getListeDeCouleurs(getCouleurActuelle().getGrayLevel());
 		scrolled.removeAll();
 		int ligne = (int) DIMENSION_PANEL.getWidth() / COTE_COULEUR - 1;
-		//System.out.println(ligne);
 		scrolled.setLayout(new GridLayout(couleurs.size() / ligne + 1, ligne));
 		lab.setText(""+ getIndexActuel());
 		
-		//scrolled.getGraphics().drawImage(dessinerCouleurs(couleurs), 0, 0, null);
 		scrolled.invalidate();
 		for (GLCouleur c : couleurs) {
 			JPanel couleurPanel = new JPanel();
@@ -136,28 +130,9 @@ public class ModifCouleur extends JPanel {
 			couleurPanel.setBorder(BorderFactory.createLineBorder(Color.WHITE));
 			
 			scrolled.add(couleurPanel);
-			//System.out.println(c.getHexa());
 		}
 		scrolled.revalidate();
 	}
-	
-//	private Image dessinerCouleurs(ArrayList<GLCouleur> couleurs) {
-//		Image img = new BufferedImage(1000, 1000, BufferedImage.TYPE_INT_RGB);
-//		Graphics g = img.getGraphics();
-//		int i = 0;
-//		
-//		int espace =  ((int) DIMENSION_PANEL.getWidth() % COTE_COULEUR) / (ligne + 1);
-//		for (GLCouleur c : couleurs) {
-//			int x = i % ligne;
-//			int y = i / ligne;
-//			
-//			g.setColor(c.getColor());
-//			g.fillRect(espace + (COTE_COULEUR + espace) * x, espace + (COTE_COULEUR + espace) * y,
-//					COTE_COULEUR, COTE_COULEUR);
-//		}
-//		
-//		return img;
-//	}
 	
 	public CouleursContainer getPalette() {
 		return ((EcranSelection) parent).getPalette();

@@ -28,14 +28,11 @@ public class Apercu extends JPanel {
 		JButton bouton = new JButton("Exportation");
 		bouton.setAlignmentX(CENTER_ALIGNMENT);;
 		bouton.addActionListener(new ActionListener() {
-			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				((Fenetre) fenetre).permuterEcran();
 				
 			}
-
-			
 		});
 
 		add(bouton);

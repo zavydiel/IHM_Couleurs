@@ -7,13 +7,9 @@ import java.util.Iterator;
 
 public class Palette {
 	
-	//HashSet<GLCouleur> couleurs = new HashSet<GLCouleur>();
-	
 	private static HashMap<Integer, HashSet<GLCouleur>> map = new HashMap<Integer, HashSet<GLCouleur>>();
 	
 	public Palette() {
-	
-		
 	}
 	
 	private static void ajouterCouleurs(int a, int b, int gray, HashSet<GLCouleur> set) {
@@ -58,14 +54,7 @@ public class Palette {
 			}
 		}
 		map.put(grayLevel, set);
-		System.out.println(set.size() + "couleurs generees en" + (System.currentTimeMillis() - time) + " ms");
-		/*Iterator<GLCouleur> it = set.iterator();
-		GLCouleur etalon = it.next();
-
-		while(it.hasNext()) {
-			System.out.println("--");
-			if (etalon.equals(it.next())) System.out.println("doublon");
-		}*/
+		//System.out.println(set.size() + "couleurs generees en" + (System.currentTimeMillis() - time) + " ms");
 	}
 	
 	public static ArrayList<GLCouleur> getListeDeCouleurs(int grayLevel) {

@@ -27,10 +27,6 @@ public class CouleursContainer {
 		return taille;
 	}
 	
-//	public void ordonnerNiveauGris() {
-//		Collections.sort(couleurs, new CouleursComparator());
-//	}
-	
 	public void setCouleur(GLCouleur c, int i) {
 		couleurs[i] = c;
 	}

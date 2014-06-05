@@ -1,9 +1,6 @@
 package selection;
 import java.awt.CardLayout;
-import java.awt.Color;
-
 import javax.swing.BoxLayout;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import couleurs.CouleursContainer;

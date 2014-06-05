@@ -1,6 +1,5 @@
 package selection;
 
-import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.Box;
@@ -9,7 +8,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import couleurs.GLCouleur;
-import couleurs.CouleursContainer;
 
 
 public class Couleurs extends JPanel {
@@ -30,6 +28,4 @@ public class Couleurs extends JPanel {
 		
 		add(horizontalBox);
 	}
-	
-
 }

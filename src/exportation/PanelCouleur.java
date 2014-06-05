@@ -3,12 +3,9 @@ package exportation;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.TextField;
-
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
-import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
