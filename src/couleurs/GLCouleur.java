@@ -15,6 +15,10 @@ public class GLCouleur {
 		couleur = c;
 	}
 	
+	public GLCouleur(String s) {
+		couleur = Color.decode(s);
+	}
+	
 	/*public GLCouleur(int grayLevel) {
 		Random rng = new Random();
 		float r = 0.3f * grayLevel;
@@ -82,12 +86,27 @@ public class GLCouleur {
 	}
 	
 	public String getHexa() {
-		return "#" + Integer.toHexString(getRed()) 
+		/*return "#" + Integer.toHexString(getRed()) 
 				+Integer.toHexString(getGreen())
-				+Integer.toHexString(getBlue());
+				+Integer.toHexString(getBlue());*/
+		return String.format("#%02x%02x%02x", getRed(), getGreen(), getBlue());				
 	}
 	
 	public boolean equals(GLCouleur c) {
 		return this.getColor().equals(c.getColor());
+	}
+	
+	public boolean isConflictuel(CouleursContainer container) {
+		for (int i = 0; i < container.getTaille(); i++) {
+			GLCouleur c = container.getGLCouleur(i);
+			if (c != this && c.isConflictuel(this)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean isConflictuel(GLCouleur c) {
+		return Math.abs(c.getGrayLevel() - this.getGrayLevel()) < 12;
 	}
 }

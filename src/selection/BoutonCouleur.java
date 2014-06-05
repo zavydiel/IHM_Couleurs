@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import couleurs.CouleursContainer;
+import couleurs.GLCouleur;
 	
 public class BoutonCouleur extends JPanel{
 	private ChoixCouleur parent;
@@ -22,7 +23,10 @@ public class BoutonCouleur extends JPanel{
 		this.index = i;		
 		this.setPreferredSize(new Dimension(50,50));
 		this.setMaximumSize(new Dimension(50,50));
-		this.setBorder(BorderFactory.createLineBorder(Color.BLACK));;
+		
+		Color borderColor = (getCouleur().isConflictuel(getPalette()) ? Color.RED : Color.BLACK);
+		
+		this.setBorder(BorderFactory.createLineBorder(borderColor));;
 
 		this.addMouseListener(new MouseListener() {
 			public void mouseClicked(MouseEvent e) {
@@ -39,11 +43,15 @@ public class BoutonCouleur extends JPanel{
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		this.setBackground(getCouleur());
+		this.setBackground(getCouleurRGB());
 	}
 	
-	public Color getCouleur() {
+	public Color getCouleurRGB() {
 		return getPalette().getGLCouleur(index).getColor();
+	}
+	
+	public GLCouleur getCouleur() {
+		return getPalette().getGLCouleur(index);
 	}
 	
 	public CouleursContainer getPalette() {

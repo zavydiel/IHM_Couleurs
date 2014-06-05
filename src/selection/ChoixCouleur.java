@@ -1,6 +1,7 @@
 package selection;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
@@ -54,9 +55,14 @@ public class ChoixCouleur extends JPanel{
 				repaint();
 			}
 		});
+		
+		JLabel instruction = new JLabel();
+		instruction.setFont(new Font("Helvetica", Font.ITALIC, 12));
+		instruction.setText("Cliquer sur une couleur pour la modifier");
 		infoBarre.add(nbCouleurs);
 		infoBarre.add(spinner);
-
+		infoBarre.add(Box.createHorizontalGlue());
+		infoBarre.add(instruction);
 		
 		
 		add(infoBarre);

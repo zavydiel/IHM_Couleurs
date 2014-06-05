@@ -1,21 +1,19 @@
 package selection;
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
-import java.awt.Image;
 import java.awt.Robot;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
+import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -24,12 +22,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
-import javax.swing.SpinnerNumberModel;
-import javax.swing.border.Border;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
+import javax.swing.JTextField;
+import javax.swing.text.JTextComponent;
 
-import sun.security.krb5.internal.PAEncTSEnc;
 import couleurs.CouleursContainer;
 import couleurs.GLCouleur;
 import couleurs.Palette;
@@ -55,7 +50,6 @@ public class ModifCouleur extends JPanel {
 		JPanel container = new JPanel();
 		container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));		
 		container.setAlignmentX(CENTER_ALIGNMENT);
-		container.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		
 		scroll = new JScrollPane(scrolled);
 		scroll.setPreferredSize(DIMENSION_PANEL);
@@ -73,8 +67,7 @@ public class ModifCouleur extends JPanel {
 					Robot robby = new Robot();
 					Color choix = robby.getPixelColor(e.getXOnScreen(), e.getYOnScreen());
 					if (!choix.equals(Color.white)) {
-						getPalette().setCouleur(new GLCouleur(choix), getIndexActuel());
-						permuterCarte();
+						setCouleur(new GLCouleur(choix), getIndexActuel());
 					}
 				} catch(Exception ex) {
 					System.out.println("Oh mince une erreur est survenue!");
@@ -86,7 +79,7 @@ public class ModifCouleur extends JPanel {
 			public void mouseClicked(MouseEvent e) {}
 		});
 		
-		JButton retour = new JButton("retour");
+		JButton retour = new JButton("Retour");
 		retour.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
@@ -95,8 +88,30 @@ public class ModifCouleur extends JPanel {
 		});
 		retour.setAlignmentX(CENTER_ALIGNMENT);
 		
+		JTextField input = new JTextField("#XXXXXX");
+		input.setMaximumSize(new Dimension(80, 20));
+		input.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String hex =((JTextField) e.getSource()).getText();
+				if (hex.matches("^#[A-Fa-f0-9]{6}$")) { 
+					((JTextField) e.getSource()).setText("#XXXXXX");
+					setCouleur(new GLCouleur(hex), getIndexActuel());
+				}
+			}
+		});		
+		input.addFocusListener(new FocusListener(){
+	        @Override
+	        public void focusGained(FocusEvent e){
+	            ((JTextComponent) e.getSource()).setText("");
+	        }
+			public void focusLost(FocusEvent arg0) {}			
+		});
+		
 		container.add(Box.createVerticalGlue());
 		container.add(scroll);
+		container.add(Box.createVerticalGlue());
+		container.add(input);
 		container.add(Box.createVerticalGlue());
 		container.add(retour);
 		container.add(Box.createVerticalGlue());
@@ -113,7 +128,7 @@ public class ModifCouleur extends JPanel {
 		lab.setText(""+ getIndexActuel());
 		
 		//scrolled.getGraphics().drawImage(dessinerCouleurs(couleurs), 0, 0, null);
-		scrolled.repaint();
+		scrolled.invalidate();
 		for (GLCouleur c : couleurs) {
 			JPanel couleurPanel = new JPanel();
 			couleurPanel.setMinimumSize(new Dimension(COTE_COULEUR, COTE_COULEUR));
@@ -123,6 +138,7 @@ public class ModifCouleur extends JPanel {
 			scrolled.add(couleurPanel);
 			//System.out.println(c.getHexa());
 		}
+		scrolled.revalidate();
 	}
 	
 //	private Image dessinerCouleurs(ArrayList<GLCouleur> couleurs) {
@@ -161,5 +177,10 @@ public class ModifCouleur extends JPanel {
 	
 	public GLCouleur getCouleurActuelle() {
 		return getPalette().getGLCouleur(getIndexActuel());
+	}
+	
+	public void setCouleur(GLCouleur c, int index) {
+		getPalette().setCouleur(c, index);
+		permuterCarte();
 	}
 }

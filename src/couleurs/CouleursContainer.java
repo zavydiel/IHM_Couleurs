@@ -14,7 +14,7 @@ public class CouleursContainer {
 		couleurs  = new GLCouleur[NOMBRE_MAX];
 		niveauxGris = new int[NOMBRE_MAX];
 		for (int i = 0; i < getTaille() ; i++) {
-			int grayLevel = 25 + (255-25)/NOMBRE_MAX * i;
+			int grayLevel = 230 - (255-25)/NOMBRE_MAX * i;
 			couleurs[i] = Palette.getCouleurAleatoire(grayLevel);
 		}
 	}
