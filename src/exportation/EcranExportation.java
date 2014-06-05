@@ -1,5 +1,6 @@
 package exportation;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -29,6 +30,11 @@ public class EcranExportation extends JPanel {
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		fenetre.setMinimumSize(new Dimension(600,400));
 
+		mettreAJour();
+	}
+	
+	public void mettreAJour() {
+		this.removeAll();
 		for(int j=1;j<=getPalette().getTaille();j++) {
 			add(new PanelCouleur(getPalette().getGLCouleur(j-1),j));
 		}
@@ -44,12 +50,9 @@ public class EcranExportation extends JPanel {
 
 			}
 		});
-		//scroll.setPreferredSize(new Dimension(800, 500));;
-		//add(scroll);
 		add(Retour);
+		revalidate();
 	}
-
-
 
 	public CouleursContainer getPalette() {
 		return ((Fenetre) fenetre).getPalette();

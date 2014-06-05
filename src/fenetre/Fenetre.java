@@ -14,19 +14,21 @@ public class Fenetre extends JFrame {
 
 	private CardLayout cartes;
 	private CouleursContainer palette;
+	private EcranExportation export;
 	
 	public Fenetre() {
 		super("Selecteur de couleurs");
-		palette = new CouleursContainer(5);
+		palette = new CouleursContainer(10);
+		palette.setNombre(5);
 		cartes = new CardLayout();
+		
+		export = new EcranExportation(this);
+		
 		this.getContentPane().setLayout(cartes);
 		setSize(800, 600);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.getContentPane().add(new EcranSelection(this), "selection");
-		this.getContentPane().add(new EcranExportation(this), "exportation");
-		
-		
-		
+		this.getContentPane().add(export, "exportation");		
 	}
 	
 	public static void main(String[] args) {
@@ -35,6 +37,7 @@ public class Fenetre extends JFrame {
 	}
 	
 	public void permuterEcran() {
+		export.mettreAJour();
 		cartes.next(this.getContentPane());
 	}
 	

@@ -34,4 +34,8 @@ public class CouleursContainer {
 	public void setCouleur(GLCouleur c, int i) {
 		couleurs[i] = c;
 	}
+
+	public void setNombre(int value) {
+		this.taille = value;
+	}
 }

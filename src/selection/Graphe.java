@@ -13,7 +13,7 @@ import couleurs.Palette;
 
 public class Graphe extends JPanel {
 
-	JFrame fenetre;
+	private JFrame fenetre;
 	
 	public Graphe(JFrame parent) {
 		super();
@@ -24,23 +24,25 @@ public class Graphe extends JPanel {
 		this.setPreferredSize(taille);
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		this.setAlignmentX(CENTER_ALIGNMENT);
+		this.setBackground(Color.WHITE);
 	}
 
 	public void paintComponent(Graphics g) {
 		if(((Fenetre) fenetre).getPalette() != null) {
-			int x = 600/6;
-			int y = 200;
-			int hauteur = 100;
-			int largeur = 30;
-			int cpt = 0;
-			int nbCouleur = 8;
 			CouleursContainer pal = ((Fenetre) fenetre).getPalette();
+			int largeur = 50;
+			int nbCouleur = pal.getTaille();
+			int x = (this.getWidth() - nbCouleur * largeur) / 2;
+			int y = 200;
+			int cpt = 0;
+			
 			//System.out.println(parent.GetPalette().getTaille());
 			
 			while(cpt < ((Fenetre) fenetre).getPalette().getTaille()) {
 				GLCouleur kulle = ((Fenetre) fenetre).getPalette().getGLCouleur(cpt);
 				g.setColor(kulle.getColor());
-				g.fillRect((x + (800/nbCouleur)*cpt) -largeur , y-hauteur, largeur , hauteur );
+				int hauteur = 80 + (int) (Math.random() * 100);
+				g.fillRect(x  + largeur * cpt , y-hauteur, largeur , hauteur);
 				cpt++;
 			}
 		}

@@ -1,8 +1,11 @@
 package selection;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Robot;
@@ -20,7 +23,11 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.border.Border;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import sun.security.krb5.internal.PAEncTSEnc;
 import couleurs.CouleursContainer;
@@ -34,20 +41,26 @@ public class ModifCouleur extends JPanel {
 	private JLabel lab = new JLabel();
 	private JPanel scrolled = new JPanel();
 	private JScrollPane scroll;
+	private JSpinner spinner;
 	
-	private final int COTE_COULEUR = 75;
-	private final Dimension DIMENSION_PANEL = new Dimension(750, 200);
+	private final int COTE_COULEUR = 50;
+	private final Dimension DIMENSION_PANEL = new Dimension(600, 200);
 
 	public ModifCouleur(JPanel parent) {
 		super();
 		this.parent = parent;
-		this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+		this.setLayout(new GridBagLayout());
+		
 		//Box container = Box.createVerticalBox();
 		JPanel container = new JPanel();
-		container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
+		container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));		
+		container.setAlignmentX(CENTER_ALIGNMENT);
+		container.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		
 		scroll = new JScrollPane(scrolled);
 		scroll.setPreferredSize(DIMENSION_PANEL);
 		scroll.setMaximumSize(DIMENSION_PANEL);
+		scroll.setAlignmentX(CENTER_ALIGNMENT);
 		//scroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		
 		//scrolled.setLayout(new FlowLayout());
@@ -80,6 +93,7 @@ public class ModifCouleur extends JPanel {
 				permuterCarte();
 			}
 		});
+		retour.setAlignmentX(CENTER_ALIGNMENT);
 		
 		container.add(Box.createVerticalGlue());
 		container.add(scroll);
@@ -87,12 +101,7 @@ public class ModifCouleur extends JPanel {
 		container.add(retour);
 		container.add(Box.createVerticalGlue());
 		
-		container.setAlignmentX(CENTER_ALIGNMENT);
-		container.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-		
-		this.add(Box.createHorizontalGlue());
-		this.add(container);
-		this.add(Box.createHorizontalGlue());
+		this.add(container, new GridBagConstraints());
 	}
 	
 	public void mettreAJour() {

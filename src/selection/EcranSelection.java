@@ -13,9 +13,10 @@ import fenetre.Fenetre;
 
 public class EcranSelection extends JPanel {
 	
-	Fenetre fenetre;
-	int couleurActuelle = 0;
-	ModifCouleur modif = new ModifCouleur(this);
+	private Fenetre fenetre;
+	private int couleurActuelle = 0;
+	private ModifCouleur modif = new ModifCouleur(this);
+	private Apercu apercu;
 	
 	private JPanel cartes = new JPanel();
 	
@@ -29,7 +30,9 @@ public class EcranSelection extends JPanel {
 		cartes.add(new ChoixCouleur(this), "choix");
 		cartes.add(modif, "modif");
 		
-		this.add(new Apercu(fenetre));
+		apercu = new Apercu(fenetre);
+		
+		this.add(apercu);
 		this.add(cartes);
 	}
 	
@@ -55,5 +58,7 @@ public class EcranSelection extends JPanel {
 		return ((Fenetre) fenetre).getPalette();
 	}
 	
-	
+	public void actualiserApercu() {
+		apercu.repaint();
+	}
 }
