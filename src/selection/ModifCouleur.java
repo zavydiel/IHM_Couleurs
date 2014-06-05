@@ -14,6 +14,7 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -40,7 +41,10 @@ public class ModifCouleur extends JPanel {
 	public ModifCouleur(JPanel parent) {
 		super();
 		this.parent = parent;
-		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+		//Box container = Box.createVerticalBox();
+		JPanel container = new JPanel();
+		container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
 		scroll = new JScrollPane(scrolled);
 		scroll.setPreferredSize(DIMENSION_PANEL);
 		scroll.setMaximumSize(DIMENSION_PANEL);
@@ -64,13 +68,11 @@ public class ModifCouleur extends JPanel {
 				}
 			}
 			public void mousePressed(MouseEvent e) {}
-			public void mouseExited(MouseEvent e) {}
+			public void mouseExited(MouseEvent e)  {}
 			public void mouseEntered(MouseEvent e) {}
 			public void mouseClicked(MouseEvent e) {}
 		});
 		
-		this.add(lab);
-		this.add(scroll);
 		JButton retour = new JButton("retour");
 		retour.addActionListener(new ActionListener() {			
 			@Override
@@ -78,8 +80,19 @@ public class ModifCouleur extends JPanel {
 				permuterCarte();
 			}
 		});
-		this.add(retour);
-		this.add(new JLabel("tototo"));
+		
+		container.add(Box.createVerticalGlue());
+		container.add(scroll);
+		container.add(Box.createVerticalGlue());
+		container.add(retour);
+		container.add(Box.createVerticalGlue());
+		
+		container.setAlignmentX(CENTER_ALIGNMENT);
+		container.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		
+		this.add(Box.createHorizontalGlue());
+		this.add(container);
+		this.add(Box.createHorizontalGlue());
 	}
 	
 	public void mettreAJour() {

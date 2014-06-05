@@ -31,7 +31,7 @@ public class Graphe extends JPanel {
 			int x = 600/6;
 			int y = 200;
 			int hauteur = 100;
-			int largeur = 20;
+			int largeur = 30;
 			int cpt = 0;
 			int nbCouleur = 8;
 			CouleursContainer pal = ((Fenetre) fenetre).getPalette();

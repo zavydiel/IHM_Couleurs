@@ -3,11 +3,18 @@ package couleurs;
 public class CouleursContainer {
 	
 	private GLCouleur[] couleurs;
+	private int[] niveauxGris;
 	
-	public CouleursContainer(int nombre) {
-		couleurs  = new GLCouleur[nombre];
-		for (int i = getTaille() - 1; i > - 1 ; i--) {
-			int grayLevel = 20 + (255-20)/getTaille() * i;
+	private int taille;
+	
+	public final int NOMBRE_MAX = 10;
+	
+	public CouleursContainer(int taille) {
+		this.taille= taille;
+		couleurs  = new GLCouleur[NOMBRE_MAX];
+		niveauxGris = new int[NOMBRE_MAX];
+		for (int i = 0; i < getTaille() ; i++) {
+			int grayLevel = 25 + (255-25)/NOMBRE_MAX * i;
 			couleurs[i] = Palette.getCouleurAleatoire(grayLevel);
 		}
 	}
@@ -17,7 +24,7 @@ public class CouleursContainer {
 	}
 	
 	public int getTaille() {
-		return couleurs.length;
+		return taille;
 	}
 	
 //	public void ordonnerNiveauGris() {
