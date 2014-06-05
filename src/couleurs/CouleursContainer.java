@@ -24,5 +24,7 @@ public class CouleursContainer {
 //		Collections.sort(couleurs, new CouleursComparator());
 //	}
 	
-	
+	public void setCouleur(GLCouleur c, int i) {
+		couleurs[i] = c;
+	}
 }

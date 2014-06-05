@@ -2,6 +2,7 @@ package selection;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -18,14 +19,13 @@ public class BoutonCouleur extends JPanel{
 	
 	public BoutonCouleur(int i, ChoixCouleur parent) {
 		this.parent = parent;
-		this.index = i;
-		this.setBackground(getCouleur());
+		this.index = i;		
 		this.setPreferredSize(new Dimension(50,50));
 		this.setMaximumSize(new Dimension(50,50));
 
 		this.addMouseListener(new MouseListener() {
 			public void mouseClicked(MouseEvent e) {
-				setCouleurActuelle();;
+				setCouleurActuelle();
 				permuterCarte();
 			}
 			public void mouseEntered(MouseEvent e) {}
@@ -34,6 +34,12 @@ public class BoutonCouleur extends JPanel{
 			public void mouseReleased(MouseEvent e){}
 			
 		});
+	}
+	
+	@Override
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		this.setBackground(getCouleur());
 	}
 	
 	public Color getCouleur() {

@@ -11,6 +11,10 @@ public class GLCouleur {
 		couleur = new Color(r, g, b);
 	}
 	
+	public GLCouleur(Color c) {
+		couleur = c;
+	}
+	
 	/*public GLCouleur(int grayLevel) {
 		Random rng = new Random();
 		float r = 0.3f * grayLevel;
@@ -84,6 +88,6 @@ public class GLCouleur {
 	}
 	
 	public boolean equals(GLCouleur c) {
-		return couleur.equals(c.getColor());
+		return this.getColor().equals(c.getColor());
 	}
 }

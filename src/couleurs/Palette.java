@@ -3,6 +3,7 @@ package couleurs;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 
 public class Palette {
 	
@@ -15,11 +16,22 @@ public class Palette {
 		
 	}
 	
-	private static GLCouleur genererCouleur(int r, int g, int gray) {
-		int b = (int) ((gray - 0.3 * r - 0.59 * g)/0.11);
-		if (b > 255 || b < 0) return null ;
-		//System.out.println(b);
-		return new GLCouleur(r, g, b);
+	private static void ajouterCouleurs(int a, int b, int gray, HashSet<GLCouleur> set) {
+		// a -> red, b -> green
+		int blue = Math.round((gray - 0.3f * a - 0.59f * b)/0.11f);
+		//a -> red, b -> blue
+		int green = Math.round((gray - 0.3f * a - 0.11f * b)/0.59f);
+		//a -> blue, b-> green
+		int red = Math.round((gray - 0.11f * a - 0.59f * b)/0.3f);
+		ArrayList<GLCouleur> liste = new ArrayList<GLCouleur>();
+		
+		if (blue < 255 && blue > 0) liste.add(new GLCouleur(a, b, blue));
+		if (green < 255 && green > 0) liste.add(new GLCouleur(a, green, b));
+		if (red < 255 && red > 0) liste.add(new GLCouleur(red, b, a));
+		
+		for (GLCouleur c : liste) {
+			if (c.getGrayLevel() == gray) set.add(c);
+		}
 	}
 	
 	
@@ -40,14 +52,20 @@ public class Palette {
 	private static void genererListe(int grayLevel) {
 		HashSet<GLCouleur> set = new HashSet<GLCouleur>();		
 		long time = System.currentTimeMillis();
-		for (int r = 0; r < 256; r++) {
-			for(int g = 0; g < 256; g++) {
-				GLCouleur c = genererCouleur(r, g, grayLevel);
-				if (c != null && c.getGrayLevel() == grayLevel) set.add(c);
+		for (int a = 0; a < 256; a += 4) {
+			for(int b = 0; b < 256; b += 4) {
+				ajouterCouleurs(a, b, grayLevel, set);
 			}
 		}
 		map.put(grayLevel, set);
 		System.out.println(set.size() + "couleurs generees en" + (System.currentTimeMillis() - time) + " ms");
+		/*Iterator<GLCouleur> it = set.iterator();
+		GLCouleur etalon = it.next();
+
+		while(it.hasNext()) {
+			System.out.println("--");
+			if (etalon.equals(it.next())) System.out.println("doublon");
+		}*/
 	}
 	
 	public static ArrayList<GLCouleur> getListeDeCouleurs(int grayLevel) {
